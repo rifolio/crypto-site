@@ -1,61 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style6.css">
-    <title>Crypto Club</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DVD Screensaver</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: white;
+  }
+
+  #dvd-logo {
+    position: absolute;
+    width: 200px;
+    height: auto;
+  }
+</style>
 </head>
 <body>
+  <img id="dvd-logo" src="img/DVD_logo.svg.png" alt="DVD Logo">
+  
+  <script>
+    const dvdLogo = document.getElementById('dvd-logo');
 
-    <header>
-        <h1>Crypto Club</h1> 
-    </header>
-    <section class="banner">
-        <img src="img/dash_coin_banner.png" alt="Crypto Club Welcome Banner">
-        <div class="welcome">
-            <h2>Welcome to <br><span>Crypto Club</span></h2>
-        </div>
-    </section>
-    <nav class="main-nav">
-        <ul>
-            <li><a href="/join.html">Join the Club</a></li>
-            <li><a href="/news.html">Latest News</a></li>
-            <li><a href="/graphics.html">View Graphics</a></li>
-            <li><a href="https://t.me/rifolio">Contact Us</a></li>
-        </ul>
-    </nav>
-    <main>
-        <article class="post">
-            <h2>Let's Go to the Moon!</h2><br>
-            <h3>Daily Digest:</h3>
-            <p>📉 Bitcoin price dropped below $27,000, Ethereum tested $1,800 <br>
-                🚨 Blockchain Terra validators halted network operations amidst LUNA and UST crash<br>
-                📊 USDT stablecoin deviated from its peg to the US dollar<br>
-                👀 Media: Terraform Labs CEO was behind the failed Basis Cash stablecoin project<br>
-                💬 BlackRock and Citadel denied involvement in UST crash. LUNA price plummeted to $0.01 and Binance delisted perpetual contracts on LUNA<br>
-                ⚽️ Amber Group platform to sponsor Chelsea FC<br>
-                🔍 Regulators to establish global oversight body for the Bitcoin industry<br>
-                ⚙️ Terraform Labs introduced additional measures to recover LUNA and UST<br>
-                📍 PancakeSwap to limit CAKE token emission to 750 million tokens<br>
-                💵 Anchor community proposed reducing UST deposit yield rates<br>
-            </p>
-        </article>
-        <ul class="images">
-            <li><img src="img/luna_down.png" alt="LUNA is about to crash"></li>
-            <li><img src="img/Terra-LUNA.jpeg" alt="Terra Luna is losing potential"></li>
-        </ul>
-    </main>
-    <section class="join">
-        <h2>Join Today!</h2>
-        <p>Stay updated with all the important news and maximize your profits with us 😉</p>
-        <form>
-            <input type="email" name="email" placeholder="Type your email & hit enter" required>
-        </form>
-    </section>
-    <footer class="footer">
-        <a href="https://discord.gg/5py8gpZX" class="copyright">Copyright 2024 Crypto Club</a>
-        <a href="https://t.me/rifolio"><img src="img/telegram_icon.png" alt="Telegram Icon" width="32" height="32"></a>
-    </footer>
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+    let speedX = 2; // Adjust speed as needed
+    let speedY = 2; // Adjust speed as needed
 
+    function moveDVD() {
+      x += speedX;
+      y += speedY;
+
+      // Check collision with screen edges
+      if (x + dvdLogo.width >= window.innerWidth || x <= 0) {
+        speedX *= -1;
+      }
+      if (y + dvdLogo.height >= window.innerHeight || y <= 0) {
+        speedY *= -1;
+      }
+
+      dvdLogo.style.left = x + 'px';
+      dvdLogo.style.top = y + 'px';
+
+      requestAnimationFrame(moveDVD);
+    }
+
+    moveDVD();
+  </script>
 </body>
 </html>
