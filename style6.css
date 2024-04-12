@@ -1,3 +1,4 @@
+/* Reset and base styles */
 body,
 ul,
 li,
@@ -8,6 +9,8 @@ a {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Header styles */
 header {
   background-color: rgb(42, 40, 40);
   padding: 15px;
@@ -17,240 +20,186 @@ header {
   z-index: 1;
   top: 0;
   left: 0;
+  transition: background-color 0.3s ease;
 }
+
 header h1 {
   color: white;
   border: 3px solid white;
   padding: 6px 12px;
   display: inline-block;
   border-radius: 36px;
+  transition: border-color 0.3s ease;
 }
+
+/* Banner styles */
 .banner {
   position: relative;
+  overflow: hidden; /* Ensure child elements don't overflow */
 }
+
 .banner img {
   max-width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  top: 60px;
+  display: block;
+  transition: transform 0.5s ease;
 }
+
 .banner .welcome {
   position: absolute;
-  top: 35%;
-  left: 55%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
   padding: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
-.banner h2 {
-  font-size: 100px;
+
+.banner:hover img {
+  transform: scale(1.1);
 }
+
+.banner:hover .welcome {
+  opacity: 1;
+}
+
+/* Navigation styles */
 nav {
   background-color: #f4f4f4;
   padding: 20px;
   position: sticky;
   top: 90px;
   z-index: 1;
+  transition: background-color 0.3s ease;
 }
+
 nav ul {
   white-space: nowrap;
   max-width: 1280px;
   margin: 0 auto;
 }
+
 nav li {
   width: 25%;
   display: inline-block;
-  font-synthesis: 24px;
+  font-size: 24px;
+  transition: transform 0.3s ease;
 }
+
+nav li:hover {
+  transform: scale(1.1);
+}
+
 nav li a {
   text-decoration: none;
   color: #4b4b4b;
 }
-nav li a.join {
-  color: green;
-}
+
+/* Main content styles */
 main {
   max-width: 100%;
-  width: 1200px; /*максимальное расширение */
+  width: 1200px;
   margin: 80px auto;
   padding: 0 40px;
   box-sizing: border-box;
 }
+
+/* Article styles */
 article h2 {
   color: rgb(95, 44, 95);
   font-size: 50px;
+  transition: color 0.3s ease;
 }
+
 article p {
   line-height: 2em;
   color: #4b4b4b;
+  transition: color 0.3s ease;
 }
-.images {
-  text-align: center;
-  margin: 80px 0;
-  white-space: nowrap;
+
+article:hover h2,
+article:hover p {
+  color: #7e7e7e;
 }
+
+/* Images styles */
 .images li {
   display: inline-block;
   width: 40%;
   margin: 20px 5%;
+  transition: transform 0.3s ease;
 }
-.images li img {
-  max-width: 100%;
+
+.images li:hover {
+  transform: translateY(-10px);
 }
+
+/* Join section styles */
 .join {
   background: #f4f4f4;
   text-align: center;
   padding: 60px 20px;
   color: #4b4b4b;
+  transition: background-color 0.3s ease;
 }
+
 .join h2 {
   font-size: 36px;
 }
-form input {
-  margin: 20px 0;
-  padding: 10px 20px;
-  font-size: 18px;
-  border-radius: 28px;
-  border: 4px solid white;
-}
+
+/* Footer styles */
 .footer {
   background: rgb(42, 40, 40);
   padding: 15px;
   text-align: center;
+  transition: background-color 0.3s ease;
 }
+
 .footer a {
   text-decoration: none;
   color: white;
 }
-.footer a[href="https://t.me/rifolio"]
-{
-  position: flex;
-  margin-left: 15px;
-  opacity: 1;
-}
-.footer a[href="https://t.me/rifolio"]:hover
-{
-  opacity: 0.5;
-  transition: 0.3s;
+
+.footer a:hover {
+  opacity: 0.7;
 }
 
-/* pseudo classes */
-
-nav li a:hover {
-  text-decoration: underline;
-}
-.images li:hover {
-  position: relative;
-  top: -10px;
-}
-form input:focus {
-  border: 3px solid #4b4b4b;
-  outline: none;
-}
-form input:valid {
-  border: 4px solid #31d300;
-}
-
-/* nav li:first-child{ 
-    border: 3px solid #f63232;
-} */
-
-article p::first-line {
-  /*редакитруем первую линию зараграф */
-  font-weight: bold;
-  font-size: 1.2em;
-}
-section.join p::first-letter {
-  font-size: 1.1em;
-}
-section.join p::selection {
-  background-color: black;
-  color: pink;
-}
-footer a::selection {
-  color: orange;
-}
-
-/* p::after{   or before
-    content: '...';
-} */
-
-@media screen and (max-width: 1700px){
-  
-  .banner h2 {
-    font-size: 80px;
-  }
+/* Responsive styles */
+@media screen and (max-width: 1080px) {
+  /* Adjustments for smaller screens */
   nav li {
     font-size: 18px;
   }
-
 }
 
-@media screen and (max-width: 1080px){
-
-  .banner h2 {
-    font-size: 50px;
-  }
-  nav li {
-    font-size: 14px;
-  }
-  nav {
-    top: 80px;
-    padding: 20px;
-  }
-
-}
-
-@media screen and (max-width: 700px){
-
+@media screen and (max-width: 700px) {
+  /* Adjustments for even smaller screens */
   header {
     padding: 12px;
     font-size: 8px;
-  } 
-  /* .banner .welcome{
-    position: relative;
-    text-align: center;
-    padding: 10px;
-  } */
-  .banner .welcome br{
+  }
+  .banner .welcome br {
     display: none;
   }
   .banner h2 {
     font-size: 25px;
   }
-  .banner .welcome span{
+  .banner .welcome span {
     font-size: 1em;
   }
   nav li {
     font-size: 12px;
   }
-  .images li{
-    width: 100%;
-    margin: 20px auto;
-    display: block;
-  }
-  .post h2, h3{
-    font-size: 25px;
-  }
-  .post p{
-    font-size: 12px;
-  }
-  nav {
-    top: 55px;
-    padding: 10px;
-  }
-
 }
 
-@media screen and (max-width: 480px){
-
-  nav li{
+@media screen and (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  nav li {
     font-size: 16px;
     position: relative;
     display: block;
     width: 100%;
     margin: 12px 0;
   }
-
 }
-
-/* this code is a ....... mess */
